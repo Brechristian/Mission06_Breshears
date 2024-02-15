@@ -28,6 +28,8 @@ test
 */
 
 document.addEventListener('DOMContentLoaded', function () {
+
+    // Set variables
     document.querySelector('form').addEventListener('submit', function (event) {
         var categoryInput = document.querySelector('input[name="Category"]');
         var titleInput = document.querySelector('input[name="Title"]');
@@ -42,9 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault(); // Prevent form submission
         }
 
-        // Check if year is in the correct format
+        // Check if year is in the correct format. I don't really know when movies were first made, but 1900 seems like a safe bet
         if (yearInput.value < 1900 || yearInput.value > 9999 || isNaN(yearInput.value)) {
-            alert('Year must be a four-digit number between 1900 and 9999.');
+            alert('Invalid Year format. Must be only 4 digits.');
             event.preventDefault(); // Prevent form submission
         }
 
