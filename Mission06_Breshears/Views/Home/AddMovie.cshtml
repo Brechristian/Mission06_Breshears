@@ -1,0 +1,65 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Mission06_Breshears.Models.AddMovie
+<div>
+    <h1>
+        "This movie/show will make a fine addition to my collection"
+    </h1>
+</div>
+@*
+    //Include options for the following: MUST INCLUDE THESE
+    // Category (string)
+    // Title (string)
+    // Edited (yes/no aka true/false bool)
+    // Year (int)
+    // Directory (string)
+    // Rating (Category dropdown, G, PG, PG-13, R)
+
+    //The following are not required to be filled out:
+    // Edited (yes/no, true/false boolean)
+    // Lent To (string)
+    // Notes (string)
+
+*@
+<form method="post" asp-action="Confirmation">
+    <label asp-for="Category">Category:</label>
+    <input asp-for="Category" />
+    <br />
+    <label asp-for="Title">Title</label>
+    <input asp-for="Title" />
+    <br />
+    <label asp-for="Year">Year</label>
+    <input asp-for="Year" />
+    <br />
+    <label asp-for="Director">Director</label>
+    <input asp-for="Director" />
+    <br />    
+    <label asp-for="Rating">Rating</label>
+    <select asp-for="Rating">
+        <option value="G">G</option>
+        <option value="PG">PG</option>
+        <option value="PG-13">PG-13</option>
+        <option value="R">R</option>
+    </select>
+    <br />
+    <label asp-for="Edited">Edited</label>
+    <select asp-for="Edited">
+        <option value="false">No</option>
+        <option value="true">Yes</option>
+
+    </select>
+    <br />
+
+    <label asp-for="Lentto">Lent To:</label>
+    <input asp-for="Lentto" />
+    <br />
+    <label asp-for="Notes">Notes</label>
+    <input asp-for="Notes" />
+    <br />  
+    <button type="submit">Add Movie/Show</button>
+    <script src="site.js"></script>
+</form>
