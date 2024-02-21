@@ -38,7 +38,7 @@ namespace Mission06_Breshears.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.AddMovie.Add(response); //Add record to database
+                _context.Movies.Add(response); //Add record to database
                 _context.SaveChanges();
                 return View("Confirmation", response);
             }
@@ -54,7 +54,7 @@ namespace Mission06_Breshears.Controllers
 
         public IActionResult SeeMovies()
         {
-            var seeMovies = _context.AddMovie
+            var seeMovies = _context.Movies
                 .OrderBy(x => x.Title) 
                 .ToList();
 
@@ -64,7 +64,7 @@ namespace Mission06_Breshears.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var recordToEdit = _context.AddMovie
+            var recordToEdit = _context.Movies
                 .Single(x => x.MovieId == id);
 
             ViewBag.Categories = _context.Categories
@@ -86,16 +86,16 @@ namespace Mission06_Breshears.Controllers
 
         public IActionResult Delete(int id)
         {
-            var recordToDelete = _context.AddMovie
+            var recordToDelete = _context.Movies
                 .Single(x => x.MovieId == id);
 
             return View(recordToDelete);
         }
 
         [HttpPost]
-        public IActionResult Delete(AddMovie addMovie)
+        public IActionResult Delete(AddMovie movie)
         {
-            _context.AddMovie.Remove(addMovie);
+            _context.Movies.Remove(movie);
             _context.SaveChanges();
 
             return RedirectToAction("SeeMovies");
