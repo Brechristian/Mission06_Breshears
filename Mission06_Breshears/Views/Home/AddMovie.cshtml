@@ -26,8 +26,18 @@
 
 *@
 <form method="post" asp-action="Confirmation">
-    <label asp-for="Category">Category:</label>
-    <input asp-for="Category" />
+
+    <input type="hidden" asp-for="MovieId" />
+    <br />
+
+    <select asp-for="CategoryId">
+        <option value="">Select a Category</option>
+        @foreach (Category c in ViewBag.Categories)
+        {
+            <option value="@c.CategoryId">@c.CategoryName</option>
+        }
+    </select>
+
     <br />
     <label asp-for="Title">Title</label>
     <input asp-for="Title" />
@@ -57,6 +67,14 @@
     <label asp-for="Lentto">Lent To:</label>
     <input asp-for="Lentto" />
     <br />
+
+    <label asp-for="CopiedToPlex">Copied To Plex?</label>
+    <select asp-for="CopiedToPlex">
+        <option value="false">No</option>
+        <option value="true">Yes</option>
+
+
+    </select>
     <label asp-for="Notes">Notes</label>
     <input asp-for="Notes" />
     <br />  
