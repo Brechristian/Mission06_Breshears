@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mission06_Breshears.Models;
 using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
@@ -55,7 +56,7 @@ namespace Mission06_Breshears.Controllers
         public IActionResult SeeMovies()
         {
             var seeMovies = _context.Movies
-                .OrderBy(x => x.Title) 
+                .OrderBy(x => x.Title)
                 .ToList();
 
             return View(seeMovies);

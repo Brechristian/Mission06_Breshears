@@ -14,7 +14,8 @@ namespace Mission06_Breshears.Models
         [ForeignKey("CategoryId")]
         public int CategoryId { get; set; }
 
-        public string Category {  get; set; }
+        //I think im supposed to keep this but it gives me an error...
+        public Category? Category {  get; set; }
 
 
         [Required (ErrorMessage = "Must have a Title")]
@@ -26,12 +27,12 @@ namespace Mission06_Breshears.Models
         public int Year {  get; set; }
 
 
-        [Required (ErrorMessage = "Must include the director's name(s)")]
+        // [Required (ErrorMessage = "Must include the director's name(s)")]
         public string? Director { get; set; }
 
 
-        [Required]
-        public string Rating { get; set; }
+        //[Required]
+        public string? Rating { get; set; }
 
 
         [Required(ErrorMessage = "Must include if edited.")]
@@ -47,15 +48,3 @@ namespace Mission06_Breshears.Models
         public string? Notes {  get; set; }
     }
 }
-//Include options for the following: MUST INCLUDE THESE
-// Category (string)
-// Title (string)
-// Edited (yes/no aka true/false bool)
-// Year (int)
-// Directory (string)
-// Rating (Category dropdown, G, PG, PG-13, R)
-
-//The following are not required to be filled out:
-// Edited (yes/no, true/false boolean)
-// Lent To (string)
-// Notes (string)

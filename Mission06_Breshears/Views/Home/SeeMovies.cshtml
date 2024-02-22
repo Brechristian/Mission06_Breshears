@@ -4,7 +4,7 @@
 @{
 }
 
-@model List<Mission06_Breshears.Models.AddMovie>
+
 
     <table class="table table-bordered">
         <thead class="fw-bold">
@@ -20,6 +20,8 @@
             </tr>
         </thead>
         <tbody>
+
+  @model List<Mission06_Breshears.Models.AddMovie>
             @foreach (var movie in Model)
             {
                 <tr>
@@ -38,6 +40,9 @@
 
 
             }
+
+
+
 
 
 
