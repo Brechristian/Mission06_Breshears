@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', function () {
 test
 */
 
+
+
+/*
 document.addEventListener('DOMContentLoaded', function () {
 
     // Set variables
@@ -57,3 +60,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+*/

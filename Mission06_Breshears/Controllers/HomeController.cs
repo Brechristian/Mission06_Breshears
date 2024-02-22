@@ -31,11 +31,11 @@ namespace Mission06_Breshears.Controllers
             ViewBag.Categories = _context.Categories
                 .OrderBy(x => x.CategoryName)
                 .ToList();
-            return View("AddMovie", new AddMovie());
+            return View("AddMovie", new Movies());
         }
 
         [HttpPost]
-        public IActionResult Confirmation(AddMovie response)
+        public IActionResult Confirmation(Movies response)
         {
             if (ModelState.IsValid)
             {
@@ -65,18 +65,27 @@ namespace Mission06_Breshears.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var recordToEdit = _context.Movies
-                .Single(x => x.MovieId == id);
+            try
+            {
+                var recordToEdit = _context.Movies
+                    .SingleOrDefault(x => x.MovieId == id);
 
-            ViewBag.Categories = _context.Categories
-            .OrderBy(x => x.CategoryName)
-            .ToList();
+                ViewBag.Categories = _context.Categories
+                    .OrderBy(x => x.CategoryName)
+                    .ToList();
 
-            return View("AddMovie", recordToEdit);
+                return View("AddMovie", recordToEdit);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception details
+                Console.WriteLine($"Error editing movie with ID {id}: {ex.Message}");
+                throw; // rethrow the exception for debugging purposes
+            }
         }
 
         [HttpPost]
-        public IActionResult Edit(AddMovie updatedInfo)
+        public IActionResult Edit(Movies updatedInfo)
         {
             _context.Update(updatedInfo);
             _context.SaveChanges();
@@ -94,7 +103,7 @@ namespace Mission06_Breshears.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(AddMovie movie)
+        public IActionResult Delete(Movies movie)
         {
             _context.Movies.Remove(movie);
             _context.SaveChanges();

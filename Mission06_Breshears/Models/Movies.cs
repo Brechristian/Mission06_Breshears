@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission06_Breshears.Models
 {
-    public class AddMovie
+    public class Movies
     {
         [Key]
         [Required]
