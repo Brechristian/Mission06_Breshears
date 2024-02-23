@@ -4,7 +4,7 @@
 @{
 }
 
-@model Mission06_Breshears.Models.Movies
+@model Mission06_Breshears.Models.AddMovie
 <div>
     <h1>
         "This movie/show will make a fine addition to my collection"
@@ -13,7 +13,7 @@
 @*
 
 *@
-<form method="post" asp-action="Confirmation">
+<form method="post">
 
     <input type="hidden" asp-for="MovieId" />
     <br />
@@ -65,6 +65,7 @@
     </select>
     <label asp-for="Notes">Notes</label>
     <input asp-for="Notes" />
+    <div asp-validation-summary="All"></div>
     <br />  
     <button type="submit">Add Movie/Show</button>
     <script src="site.js"></script>

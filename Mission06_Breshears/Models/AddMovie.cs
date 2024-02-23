@@ -3,18 +3,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission06_Breshears.Models
 {
-    public class Movies
+    public class AddMovie
     {
         [Key]
         [Required]
         public int MovieId {  get; set; } //if only a get, then a read only variable
 
-
-
         [ForeignKey("CategoryId")]
         public int CategoryId { get; set; }
 
         //I think im supposed to keep this but it gives me an error...
+        // 
         public Category? Category {  get; set; }
 
 
@@ -23,7 +22,7 @@ namespace Mission06_Breshears.Models
 
 
         [Required]
-        [Range(1880, 9999, ErrorMessage = "Must be a valid year")]
+        [Range(1888, 9999, ErrorMessage = "Must be a valid year")]
         public int Year {  get; set; }
 
 

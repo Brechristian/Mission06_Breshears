@@ -31,11 +31,11 @@ namespace Mission06_Breshears.Controllers
             ViewBag.Categories = _context.Categories
                 .OrderBy(x => x.CategoryName)
                 .ToList();
-            return View("AddMovie", new Movies());
+            return View("AddMovie", new AddMovie());
         }
 
         [HttpPost]
-        public IActionResult Confirmation(Movies response)
+        public IActionResult AddMovie(AddMovie response)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace Mission06_Breshears.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Movies updatedInfo)
+        public IActionResult Edit(AddMovie updatedInfo)
         {
             _context.Update(updatedInfo);
             _context.SaveChanges();
@@ -103,7 +103,7 @@ namespace Mission06_Breshears.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(Movies movie)
+        public IActionResult Delete(AddMovie movie)
         {
             _context.Movies.Remove(movie);
             _context.SaveChanges();

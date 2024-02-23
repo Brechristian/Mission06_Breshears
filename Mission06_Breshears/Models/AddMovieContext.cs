@@ -9,7 +9,7 @@ namespace Mission06_Breshears.Models
 
         }
 
-        public DbSet<Movies> Movies { get; set; }
+        public DbSet<AddMovie> Movies { get; set; }
 
         public DbSet<Category> Categories { get; set; }
 
